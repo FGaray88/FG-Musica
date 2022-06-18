@@ -5,12 +5,11 @@ import './App.css';
 
 function App() {
   return (
-    <div>
+    <>
       <NavBar />
-    </div>,
-    <div>
+      
       <ItemListContainer name="Terrícola" app="FG-Musica" />
-    </div>
+    </>
   );
 }
 
