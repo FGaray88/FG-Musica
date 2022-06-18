@@ -1,17 +1,18 @@
-import { margin } from "@mui/system";
 import React from "react"
 import logo from '../../assets/LogoFG.jpg';
+import CartWidget from '../CartWidget/cartWidget'
 
 const NavBar = () => {
     return (
         <header style={styles.header}>
-        <img style={styles.img} src={logo} alt="logo" />
-        <h1 style={styles.h1}>FABIAN GARAY | TIENDA DE MUSICA</h1>
-        <nav style={styles.nav}>
-            <a style={styles.a} href="#!">Audios</a>
-            <a style={styles.a} href="#!">Letras</a>
-            <a style={styles.a} href="#!">Partituras</a>
-        </nav>
+            <img style={styles.img} src={logo} alt="logo" />
+            <h1 style={styles.h1}>FABIAN GARAY | TIENDA DE MUSICA</h1>
+            <nav style={styles.nav}>
+                <a style={styles.a} href="#!">Audios</a>
+                <a style={styles.a} href="#!">Letras</a>
+                <a style={styles.a} href="#!">Partituras</a>
+            </nav>
+            <CartWidget />
         </header>
     )
 }
