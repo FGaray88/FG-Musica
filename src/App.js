@@ -8,6 +8,9 @@ function App() {
     <div>
       <NavBar />
     </div>,
+    <div>
+      <ItemListContainer name="Terrícola" app="FG-Musica" />
+    </div>
   );
 }
 
