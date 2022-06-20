@@ -8,7 +8,7 @@ function App() {
     <>
       <NavBar />
       
-      <ItemListContainer name="Terrícola" app="FG-Musica" />
+      <ItemListContainer name="Terrícola" app="'FG-Musica'" />
     </>
   );
 }

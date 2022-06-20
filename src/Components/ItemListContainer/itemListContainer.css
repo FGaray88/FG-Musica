@@ -1,0 +1,11 @@
+
+.texto1 {
+    font-size: 30px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    width: 20%;
+    border: 5px ridge rgb(135, 134, 134);
+    background-color: rgb(244, 183, 142);
+    text-align: center;
+}
