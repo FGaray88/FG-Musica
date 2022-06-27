@@ -1,7 +1,6 @@
 import React from "react"
 import logo from '../../assets/LogoFG.jpg';
 import './navbar.css'
-import CartWidget from '../CartWidget/cartWidget'
 
 
 const NavBar = () => {
@@ -14,7 +13,7 @@ const NavBar = () => {
                 <a href="#!">Letras</a>
                 <a href="#!">Partituras</a>
             </nav>
-            <CartWidget />
+            
         </header>
     )
 }

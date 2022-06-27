@@ -1,0 +1,48 @@
+
+section {
+    font-size: 30px;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    width: 20%;
+    border: 5px ridge rgb(135, 134, 134);
+    background-color: rgb(244, 183, 142);
+    text-align: center;    
+    display: flex;
+    flex-direction: column;
+}
+
+
+.comp {
+    padding: 20px;
+}
+
+button {
+    background-color: rgb(240, 202, 202);
+}
+button:hover{
+    background-color: rgb(213, 112, 84);
+}
+
+.carrito {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+}
+
+
+.counter {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.counter div {
+    width: 100%;
+}
