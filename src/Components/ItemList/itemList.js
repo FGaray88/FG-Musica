@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { SpinnerCircular } from 'spinners-react';
 import Item from '../Item/item'
+import './ItemList.css'
 
 const ItemList = (productos) => {
     const promesa = new Promise((res, rej) => {
@@ -8,10 +9,10 @@ const ItemList = (productos) => {
             res(productos.productos);
         }, 5000);
     });
-
     
+    console.log(promesa)
     
-       const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState([]);
     
         useEffect(() => {
             promesa.then((data) => {
@@ -21,12 +22,12 @@ const ItemList = (productos) => {
                 console.log("mal")
             })
         });
-    
-        
+            
     return (
-        
         <>
-        <SpinnerCircular />
+        <div className="spinner">
+            {products.length===0 && <SpinnerCircular />}
+        </div>
         {products.map((product) =>
             <>
                 <Item prop={product} />

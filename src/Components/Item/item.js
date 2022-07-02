@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { SpinnerCircular } from 'spinners-react';
 import './item.css'
 
 
@@ -11,7 +9,7 @@ const producto = productos.prop
         <>
         <div className="div" key={producto.id}>
             <h2>{producto.prod}</h2>
-            <img src={producto.picture}></img>
+            <img src={producto.picture} alt="Hola"></img>
             <h3>{producto.precio}</h3>
         </div>
         </>

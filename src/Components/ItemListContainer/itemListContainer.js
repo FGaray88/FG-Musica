@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import './itemListContainer.css'
 import ItemCount from '../ItemCount/itemCount.js'
 import ItemList from '../ItemList/itemList'
@@ -7,7 +7,7 @@ import ItemList from '../ItemList/itemList'
 
 
 const productos = [
-    {id:"1", prod: "Guitarra Electrica", picture:"../../assets/guitar.jpg", precio:"$20.000"},
+    {id:"1", prod: "Guitarra Electrica", picture:"@assets/guitar.jpg", precio:"$20.000"},
     {id:"2", prod: "Bajo electrico", picture:"../../assets/bass.jpg", precio:"$12.000"},
     {id:"3", prod: "Ukulele", picture:"../../assets/ukulele.jpg", precio:"$5.000"},
     {id:"4", prod: "Piano digital", picture:"../../assets/piano.jpg", precio:"$50.000"},
