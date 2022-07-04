@@ -12,8 +12,7 @@ const producto = productos.prop
             <img src={producto.picture} alt="Hola"></img>
             <h3>{producto.precio}</h3>
         </div>
-        </>
-        )
+        </>)
 }
 
 

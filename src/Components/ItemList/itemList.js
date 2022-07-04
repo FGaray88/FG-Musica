@@ -10,8 +10,6 @@ const ItemList = (productos) => {
         }, 5000);
     });
     
-    console.log(promesa)
-    
     const [products, setProducts] = useState([]);
     
         useEffect(() => {
@@ -30,7 +28,7 @@ const ItemList = (productos) => {
         </div>
         {products.map((product) =>
             <>
-                <Item prop={product} />
+                <Item key={product.id} prop={product} />
             </>)}
         </>
         )    

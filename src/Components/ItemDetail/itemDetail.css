@@ -1,0 +1,15 @@
+
+.divDetail {
+    margin-top: 30px;
+    background-color: rgb(232, 217, 189);
+    border: 5px ridge grey;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.descripcion {
+    width: 20%;
+}

@@ -7,7 +7,7 @@ import ItemList from '../ItemList/itemList'
 
 
 const productos = [
-    {id:"1", prod: "Guitarra Electrica", picture:"@assets/guitar.jpg", precio:"$20.000"},
+    {id:"1", prod: "Guitarra Electrica", picture:"https://http2.mlstatic.com/D_NQ_NP_2X_700461-MLA48123320539_112021-F.webp", precio:"$62.000"},
     {id:"2", prod: "Bajo electrico", picture:"../../assets/bass.jpg", precio:"$12.000"},
     {id:"3", prod: "Ukulele", picture:"../../assets/ukulele.jpg", precio:"$5.000"},
     {id:"4", prod: "Piano digital", picture:"../../assets/piano.jpg", precio:"$50.000"},
