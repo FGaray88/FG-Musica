@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { SpinnerCircular } from 'spinners-react';
 import Item from '../Item/item'
 import './ItemList.css'
+import { useParams } from "react-router-dom"
 
 const ItemList = (productos) => {
     const promesa = new Promise((res, rej) => {
@@ -9,6 +10,8 @@ const ItemList = (productos) => {
             res(productos.productos);
         }, 5000);
     });
+
+    const {categoryName} = useParams()
     
     const [products, setProducts] = useState([]);
     
@@ -19,17 +22,17 @@ const ItemList = (productos) => {
             }).catch(() => {
                 console.log("mal")
             })
-        });
+        }, [categoryName]);
             
     return (
         <>
         <div className="spinner">
             {products.length===0 && <SpinnerCircular />}
         </div>
-        {products.map((product) =>
-            <>
-                <Item key={product.id} prop={product} />
-            </>)}
+
+        <div className="lista">
+        {products.map((product) =><Item key={product.id} prop={product} />)}
+        </div>
         </>
         )    
 }

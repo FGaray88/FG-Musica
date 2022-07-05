@@ -6,6 +6,7 @@ import ItemList from '../ItemList/itemList'
 
 
 
+
 const productos = [
     {id:"1", prod: "Guitarra Electrica", picture:"https://http2.mlstatic.com/D_NQ_NP_2X_700461-MLA48123320539_112021-F.webp", precio:"$62.000"},
     {id:"2", prod: "Bajo electrico", picture:"../../assets/bass.jpg", precio:"$12.000"},
@@ -24,9 +25,10 @@ const ItemListContainer = (props) => {
 
     return (
         <>
-        <p class="texto1">Bienvenido {props.name} a {props.app}</p>
-        <ItemCount stock={5} initial={1} onAdd={onAdd} />
-        <ItemList productos={productos} />
+            <p class="texto1">Bienvenido {props.name} a {props.app}</p>
+                <ItemList productos={productos} />
+            <ItemCount stock={5} initial={1} onAdd={onAdd} />
+        
         </>
 
     )
