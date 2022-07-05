@@ -1,4 +1,5 @@
 import './itemDetail.css'
+import { Link } from "react-router-dom";
 
 
 const ItemDetail = (producto) => {
@@ -9,10 +10,13 @@ const prod = producto.producto
     return (
         <>
         <div className='divDetail'>
-            <h2>{prod.prod}</h2>
             <img src={prod.picture} alt="Hola"></img>
-            <h3>Precio {prod.precio}</h3>
-            <h4 className='descripcion'>{prod.descr}</h4>
+            <div className='divText'>
+                <h2>{prod.prod}</h2>
+                <p className='descripcion'>{prod.descr}</p>
+                <h3>Precio {prod.precio}</h3>
+                <Link to="./cart">Agregar al carrito</Link>
+            </div>
         </div>
         </>)
 }
