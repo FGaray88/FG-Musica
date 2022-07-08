@@ -10,9 +10,9 @@ import CartWidget from "../CartWidget/cartWidget";
 const NavBar = () => {
 
     const categorias = [
-        { name: "Instrumentos Musicales", id:0, route:"/categoria/instruments"},
-        { name: "Placas de audio", id:0, route:"/categoria/placasAudio"},
-        { name: "Accesorios", id:0, route:"/categoria/accesorios"},
+        { name: "Guitarras", id:1, route:"/categoria/guitarras"},
+        { name: "Bajos", id:2, route:"/categoria/bajos"},
+        { name: "Pianos Digitales", id:3, route:"/categoria/pianos"},
     ];
 
     return (

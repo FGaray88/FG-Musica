@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import './itemCount.css'
-import CartWidget from '../CartWidget/cartWidget'
 
 
 
@@ -24,13 +23,17 @@ import CartWidget from '../CartWidget/cartWidget'
 
         return (
             <section>
-                <div class="comp">ItemCount</div>
-                <div class="counter">
-                    <button onClick={restar}>◄</button>
-                    <div>{contador}</div>
-                    <button onClick={sumar}>►</button>
+                <p class="comp">Selecciona la cantidad que quieres agregar y luego haz click en agregar al carrito</p>
+                <div className="agr">
+                    <div className="counter">
+                        <button onClick={restar}>◄</button>
+                        <div>{contador}</div>
+                        <button onClick={sumar}>►</button>
+                    </div>
+                    <div className="carrito" >
+                        <button onClick={addCart}>AGREGAR AL CARRITO</button>
+                    </div>
                 </div>
-                <button class="carrito" onClick={addCart}><CartWidget />AGREGAR AL CARRITO</button>
             </section> )
     }
 

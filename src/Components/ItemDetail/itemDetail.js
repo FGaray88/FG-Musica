@@ -1,10 +1,14 @@
 import './itemDetail.css'
-import { Link } from "react-router-dom";
+import ItemCount from '../ItemCount/itemCount.js'
 
 
 const ItemDetail = (producto) => {
 
 const prod = producto.producto
+
+const onAdd = (contador) => {
+    alert("Agregaste "+ contador +" productos")
+}
 
 
     return (
@@ -12,10 +16,10 @@ const prod = producto.producto
         <div className='divDetail'>
             <img src={prod.picture} alt="Hola"></img>
             <div className='divText'>
-                <h2>{prod.prod}</h2>
+                <h2>{prod.nombre}</h2>
                 <p className='descripcion'>{prod.descr}</p>
                 <h3>Precio {prod.precio}</h3>
-                <Link to="./cart">Agregar al carrito</Link>
+                <ItemCount stock={5} initial={1} onAdd={onAdd} />
             </div>
         </div>
         </>)

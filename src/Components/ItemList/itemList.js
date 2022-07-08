@@ -8,17 +8,17 @@ const ItemList = (productos) => {
     const promesa = new Promise((res, rej) => {
         setTimeout(() => {
             res(productos.productos);
-        }, 5000);
+        }, 2000);
     });
 
-    const {categoryName} = useParams()
+    const categoryName = useParams()
+    
     
     const [products, setProducts] = useState([]);
     
         useEffect(() => {
             promesa.then((data) => {
                 setProducts(data);
-                console.log(products)
             }).catch(() => {
                 console.log("mal")
             })

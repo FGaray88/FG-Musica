@@ -14,14 +14,13 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<ItemListContainer name="Terrícola" app="'FG-Musica'" />} />
         <Route path="/categoria/:categoryName" element={<ItemListContainer name="Terrícola" app="'FG-Musica'" />} />
         <Route path="/item/:itemId" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<Cart />} />
-      </Routes> */}
-      <ItemListContainer name="Terrícola" app="'FG-Musica'" />
-      <ItemDetailContainer />
+      </Routes>
+
 
     </BrowserRouter>
   );
