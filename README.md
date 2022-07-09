@@ -1,70 +1,49 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+Objetivo = Tienda eCommerce de instrumentos musicales ficticios 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Resumen de conceptos aplicados
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+En el archivo App.js se montan todos los componentes implementando el hook BrowserRoutes, los que contienen navegabilidad estan montados a traves del hook Routes(dentro de BrowserRoutes)
 
-### `npm test`
+Componentes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+NavBar : 
+Obtengo un array con las categorias que tienen las propiedades nombre, id y ruta que luego utilizo para montar en el NavLink, a su vez hago un .map de dicho array para automatizar la muestra de dichas categorias (si en el futuro se agregaran o se quitaran categorias el componente estará automatizado).
+Tambien estoy implementando un logo dentro de un Link que al clickear nos lleva a la vista Home, un Link a Cart y un h3 con el nombre de la tienda
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ItemListContainer : 
+este componente toma el array de productos original y lo envia a ItemList por parametro
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ItemList :
+recibe el array de productos con demora programada (promises) y setea en "products" el array completo o filtrado segun categoria segun corresponda, luego se envia por props a Item un solo producto del nuevo array ("products") y se hace un .map para que muestre un Item por cada producto que haya en el mismo. Ademas incorpora un spinner durante el lapso de tiempo que tarda en mostrarse los productos
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Item: 
+Recibe un producto (objeto) con todas sus propiedades que a traves del destructuring estoy asignado un tag img con la prop picture (que trae la url) un h3 para el nombre, otro para el precio y un Link con una url creada a partir del id del objeto que nos llevará a ver el detalle del item seleccionado.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ItemDetailContainer:
+Recibe el array de productos original (igual que ItemListContainer) con la diferencia de que este componente va a setear en "product" el objeto que se encuentre en una posicion (index) determinada, dicha posicion variará de acuerdo al valor de itemId que estoy trayendo con useParams(), y luego con "ternario Spinner" de por medio lo enviará por props a ItemDetail.
+Como extra, estoy creando una const index = itemId - 1 para luego trabajar la logica con los numeros del index, esto lo hice asi por que no encuentro la manera de aplicar el id del producto en la linea 28 de ItemDetailContainer.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+setProduct(data[index]) - asi está hecho
+setProduct(data.id) - esto no funciona
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+ItemDetail :
+Similar a Item pero con otras caracteristicas mostradas, ademas aquí se encuentra montado el componente ItemCount, al cual le pasa por props un numero de stock, un numero inicial y una funcion onAdd, que si bien está declarada en este componente será llamada por ItemCount.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ItemCount:
+Este recibe por parametro un numero de stock con el cual se establece un condicional para que en el caso de que stock sea 0 no se permita agregar el producto al carrito, y otro condicional para que el contador no permita agregar mas cantidad de las que marca stock.
+tambien recibe un numero inicial para setear el contador, y la funcion onAdd que será llamada al clickear el boton, con otra funcion condicional de por medio (addCart) que no permite activar la funcion onAdd cuando el contador es 0.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
