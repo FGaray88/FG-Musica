@@ -11,14 +11,24 @@ const ItemList = (productos) => {
         }, 2000);
     });
 
-    const categoryName = useParams()
+    const {categoryName} = useParams()
+
+    //aca tengo que aplicar el filter a productos categoryName trae guitarras o bajos o pianos
     
     
     const [products, setProducts] = useState([]);
     
         useEffect(() => {
             promesa.then((data) => {
-                setProducts(data);
+                /* categoryName ? setProducts(data) : setProducts(data[index].categoria) */
+                const filtro = []
+                for (let i = 0; i < data.length; i+=1) {
+                    if (data[i].categoria===categoryName) { filtro.push(data[i]) }
+                    console.log(filtro)    
+                    }
+
+                categoryName ? setProducts(filtro) : setProducts(data)
+                
             }).catch(() => {
                 console.log("mal")
             })
