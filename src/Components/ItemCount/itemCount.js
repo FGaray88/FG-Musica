@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import './itemCount.css'
+import { Link } from  "react-router-dom";
 
 
 
-
-    const ItemCount = ({stock, initial, onAdd}) => {
+    const ItemCount = ({stock, initial, onAdd, cart}) => {
         
         const [contador, setContador] = useState(initial);
 
@@ -18,7 +18,10 @@ import './itemCount.css'
         
         const addCart = () => {
             contador!==0 ? onAdd(contador) : alert("no se puede agregar")
+            
         }
+
+
 
 
         return (

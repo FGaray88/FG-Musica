@@ -23,8 +23,7 @@ const ItemList = (productos) => {
                 /* categoryName ? setProducts(data) : setProducts(data[index].categoria) */
                 const filtro = []
                 for (let i = 0; i < data.length; i+=1) {
-                    if (data[i].categoria===categoryName) { filtro.push(data[i]) }
-                    console.log(filtro)    
+                    if (data[i].categoria===categoryName) { filtro.push(data[i]) } 
                     }
 
                 categoryName ? setProducts(filtro) : setProducts(data)
