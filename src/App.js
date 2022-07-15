@@ -9,20 +9,24 @@ import {
   Route,
 } from "react-router-dom";
 import Cart from "./Components/Cart/cart";
+import CustomProvider from './Context/CartContext';
 
 function App() {
   return (
+    <>
+
     <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<ItemListContainer name="Terrícola" app="'FG-Musica'" />} />
-        <Route path="/categoria/:categoryName" element={<ItemListContainer name="Terrícola" app="'FG-Musica'" />} />
-        <Route path="/item/:itemId" element={<ItemDetailContainer />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-
-
+      <CustomProvider>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer name="Terrícola" app="'FG-Musica'" />} />
+          <Route path="/categoria/:categoryName" element={<ItemListContainer name="Terrícola" app="'FG-Musica'" />} />
+          <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </CustomProvider>
     </BrowserRouter>
+    </>
   );
 }
 

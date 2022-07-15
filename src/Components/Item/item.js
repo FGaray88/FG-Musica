@@ -1,5 +1,7 @@
+import React from 'react';
 import './item.css'
 import { Link } from  "react-router-dom";
+
 
 
 const Item = (productos) => {
@@ -21,12 +23,6 @@ const url = `/item/${producto.id}`
         </div>
         )
 }
-
-
-
-
-
-
 
 
 export default Item
