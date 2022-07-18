@@ -1,13 +1,24 @@
 .divCont {
+    margin-top: 6px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 80px;
 }
 
 
 .cart {
-    width: 100%;
+    width: 80%;
     border-radius: 20px;
+}
+
+.n {
+    font-size: 15px;
+    background-color:red;
+    color: white;
+    width: 40%;
+    border-radius: 30px;
+    margin: auto;
 }
 
 .p {

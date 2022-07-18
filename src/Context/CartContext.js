@@ -7,10 +7,16 @@ const { Provider } = cartContext;
 const CartProvider = ({children}) => {
 
     const [products, setProducts] = useState([])
-    const [qtyProducts, setQtyProducts] = useState(0);
 
-    const getQtyProducts = () => {
 
+console.log(products)
+
+    const cantidadProducts = () => {
+        let qty = 0;
+        products.forEach(product => {
+            qty += product.qty;
+        })
+        return qty;
     }
 
     const addProduct = (product) => {
@@ -19,18 +25,19 @@ const CartProvider = ({children}) => {
             const found = aux.find(p => p.id === product.id);
             found.qty += product.qty;
             setProducts(aux)
-        }else {
+        }else{
             setProducts([...products, product])
         }
-    }
+    };
 
+    
     const borrarProducts = (id) => {
-
+        setProducts(products.filter(product => product.id !==id));
     }
 
-    const isInCart = (id) =>{
-        products.some(product => product.id === id);
-    }
+    const isInCart = (id) => {
+        return products.some(product => product.id === id);  
+    };
 
     const reset = () => {
         setProducts([]);
@@ -38,7 +45,7 @@ const CartProvider = ({children}) => {
 
 
     return (
-        <Provider value={{products, addProduct, borrarProducts, reset, qtyProducts}}>
+        <Provider value={{products, addProduct, borrarProducts, reset, cantidadProducts}}>
             {children}
         </Provider>
     )
