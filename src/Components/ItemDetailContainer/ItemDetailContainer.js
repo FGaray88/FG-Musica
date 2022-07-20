@@ -4,6 +4,8 @@ import ItemDetail from "../ItemDetail/itemDetail"
 import { SpinnerCircular } from 'spinners-react';
 import { useParams } from "react-router-dom";
 import productos from '../ItemListContainer/productos'
+import db from "../../firebase/firebase"
+import { getDoc, collection, doc } from "firebase/firestore"
 
 
 const ItemDetailContainer = () => {
@@ -24,6 +26,20 @@ const ItemDetailContainer = () => {
     const [loaded, setLoaded] = useState(true);
     
     useEffect(() => {
+        /* 
+        const productCollection = collection(db,"productos");
+        const refDoc = doc(productCollection, productID);
+        getDoc(refDoc)
+        .then (result => {
+            const producto = {
+                id: result.id,
+                ...result.data(),
+            }
+            setProduct(producto)
+        })
+         */
+
+
             promesa.then((data) => {
                 setProduct(data[index]);
             }).catch(() => {

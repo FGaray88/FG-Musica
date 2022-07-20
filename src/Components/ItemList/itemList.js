@@ -3,6 +3,9 @@ import { SpinnerCircular } from 'spinners-react';
 import Item from '../Item/item'
 import './ItemList.css'
 import { useParams } from "react-router-dom"
+import db from "../../firebase/firebase"
+import { getDocs, collection, query, where } from "firebase/firestore"
+
 
 const ItemList = (productos) => {
     const promesa = new Promise((res, rej) => {
@@ -19,6 +22,22 @@ const ItemList = (productos) => {
     const [products, setProducts] = useState([]);
     
         useEffect(() => {
+            /*
+            const productsCollection = collection(db, "productos");
+            const q = query(productsCollection), where ("categoryID", "==", "guitarras")
+
+            getDocs(productsCollection)
+            .then(result => {
+                const lista = result.docs.map(doc => {
+                    return {
+                        ...doc.data()
+                    }
+                })
+                console.log(lista)
+            })
+             */
+
+
             promesa.then((data) => {
                 /* categoryName ? setProducts(data) : setProducts(data[index].categoria) */
                 const filtro = []

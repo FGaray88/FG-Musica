@@ -4,8 +4,8 @@ import ItemList from '../ItemList/itemList'
 import productos from './productos'
 
 
-const ItemListContainer = (props) => {
 
+const ItemListContainer = (props) => {
     return (
         <>
             <p class="texto1">Bienvenido {props.name} a {props.app}</p>
