@@ -7,25 +7,24 @@ const { Provider } = cartContext;
 const CartProvider = ({children}) => {
 
     const [products, setProducts] = useState([])
-    const [precio, setPrecio] = useState(0)
+    const [cantidad, setCantidad] = useState(0)
+    const [total, setTotal] = useState(0)
 
 
-console.log(products)
+console.log("cantidad: ", cantidad)
+console.log("precio: ", total)
 
-    const cantidadProducts = () => {
-        let qty = 0;
+    const cantidadProducts = (qty) => {
         products.forEach(product => {
             qty += product.qty;
         })
-        return qty;
+        setCantidad(qty)
     }
 
     const addProduct = (product) => {
-        const totalPrice = precio + product.precio
-        setPrecio(totalPrice)
-        console.log(precio)
-        console.log(totalPrice)
-
+        const totalPrice = total + product.precio*product.qty
+        setTotal(totalPrice)
+        cantidadProducts(product.qty)
 
         if (isInCart(product.id)){
             const aux = [...products]
@@ -40,14 +39,12 @@ console.log(products)
     
     const borrarProducts = (id) => {
         setProducts(products.filter(product => product.id !==id));
-        
-                
         const productTrash = products.find(p => p.id === id);
-        console.log(precio)
-        const reducePrice = precio - productTrash.precio
+        const reducePrice = total - productTrash.precio*productTrash.qty
+        const reduceQty = cantidad - productTrash.qty
         console.log(reducePrice)
-        setPrecio(reducePrice)
-        console.log(precio)
+        setTotal(reducePrice)
+        setCantidad(reduceQty)
     }
 
     const isInCart = (id) => {
@@ -56,11 +53,13 @@ console.log(products)
 
     const reset = () => {
         setProducts([]);
+        setCantidad(0)
+        setTotal(0)
     }
 
 
     return (
-        <Provider value={{products, addProduct, borrarProducts, reset, cantidadProducts}}>
+        <Provider value={{products, addProduct, borrarProducts, reset, cantidad, total}}>
             {children}
         </Provider>
     )

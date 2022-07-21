@@ -5,13 +5,14 @@ import { cartContext } from '../../Context/CartContext';
 
 const CartWidget = () => {
 
-    const { cantidadProducts } = useContext(cartContext)
-    const numero = cantidadProducts();
+    const { cantidad } = useContext(cartContext)
+    
+    console.log(cantidad)
 
     return(
         <div className='divCont'>
             <img class="cart" src={cart} alt="carrito" />
-            <p className='p'>Ver Carrito {numero!==0 ? <p className='n'>{numero}</p> : ""}</p>
+            <p className='p'>Ver Carrito {cantidad!==0 ? <p className='n'>{cantidad}</p> : ""}</p>
         </div>
 
     )

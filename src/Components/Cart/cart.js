@@ -1,14 +1,17 @@
 import React, { useContext } from 'react';
 import { cartContext } from "../../Context/CartContext";
 import { Link } from "react-router-dom";
+import './Cart.css';
 
 const Cart = () => {
 
-    const {products} = useContext(cartContext)
+    const { products } = useContext(cartContext)
     const { reset } = useContext(cartContext);
     const { borrarProducts } = useContext(cartContext);
+    const { cantidad } = useContext(cartContext);
+    const { total } = useContext(cartContext);
 
-    
+console.log(cantidad)
 
     const vaciarCart = () => {
         reset()
@@ -19,12 +22,19 @@ const Cart = () => {
     }
 
     return (
-        <div>
+        <div className='table'>
         {products.length === 0
             ? <h1>Carrito Vacio, no seas zopenco y compra algo <Link to="/">aquí</Link></h1>
             : <div>
-                {products.map(product =><div key={product.id} ><h1>Producto: {product.nombre}</h1><h2>Precio: ${product.precio}</h2><h3>Cantidad: {product.qty}</h3><button onClick={() => borrar(product.id)}>Eliminar Item</button></div>)}
-                <div>
+                <div className='title'>
+                    <h1>Producto</h1><h1>Cantidad</h1><h1>Precio unitario</h1><h1>Precio Total</h1>
+                </div >
+                {products.map(product =><div className='products' key={product.id} ><p>{product.nombre}</p><p>{product.qty}</p><p>${product.precio}</p><p>${product.precio*product.qty}</p><button onClick={() => borrar(product.id)}>Eliminar Item</button></div>)}
+                <div className='footer'>
+                    <p>Cantidad de productos agregados: {cantidad}</p>
+                    <p>Precio total: ${total}</p>
+                </div>
+                <div className='vaciarCart'>
                     <button onClick={vaciarCart}>Vaciar Carrito</button>
                 </div>
             </div>
