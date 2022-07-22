@@ -1,4 +1,5 @@
 
+
 const productos = [
     {
         id: "1",
@@ -29,7 +30,7 @@ const productos = [
 
     {
         id: "4",
-        nombre: " Guitarra Electrica Squier Affinity Telecaster",
+        nombre: "Guitarra Electrica Squier Affinity Telecaster",
         categoria:"guitarras",
         picture: "https://http2.mlstatic.com/D_NQ_NP_2X_942495-MLA40735278247_022020-F.webp",
         precio: 100000,
@@ -140,6 +141,7 @@ const productos = [
 ]
 
 export default productos
+
 
 
 

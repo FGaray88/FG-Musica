@@ -4,7 +4,7 @@ import { Link } from  "react-router-dom";
 
 
 
-    const ItemCount = ({stock, initial, onAdd, cart}) => {
+    const ItemCount = ({stock, initial, onAdd,}) => {
         
         const [contador, setContador] = useState(initial);
 
@@ -26,7 +26,7 @@ import { Link } from  "react-router-dom";
 
         return (
             <section>
-                <p class="comp">Selecciona la cantidad que quieres agregar y luego haz click en agregar al carrito</p>
+                <p className="comp">Selecciona la cantidad que quieres agregar y luego haz click en agregar al carrito</p>
                 <div className="agr">
                     <div className="counter">
                         <button onClick={restar}>◄</button>

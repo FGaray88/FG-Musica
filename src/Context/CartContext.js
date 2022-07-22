@@ -11,8 +11,6 @@ const CartProvider = ({children}) => {
     const [total, setTotal] = useState(0)
 
 
-console.log("cantidad: ", cantidad)
-console.log("precio: ", total)
 
     const cantidadProducts = (qty) => {
         products.forEach(product => {
@@ -42,7 +40,6 @@ console.log("precio: ", total)
         const productTrash = products.find(p => p.id === id);
         const reducePrice = total - productTrash.precio*productTrash.qty
         const reduceQty = cantidad - productTrash.qty
-        console.log(reducePrice)
         setTotal(reducePrice)
         setCantidad(reduceQty)
     }

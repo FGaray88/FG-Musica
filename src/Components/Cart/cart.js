@@ -11,8 +11,6 @@ const Cart = () => {
     const { cantidad } = useContext(cartContext);
     const { total } = useContext(cartContext);
 
-console.log(cantidad)
-
     const vaciarCart = () => {
         reset()
     }
