@@ -7,6 +7,7 @@ import { Link } from  "react-router-dom";
     const ItemCount = ({stock, initial, onAdd,}) => {
         
         const [contador, setContador] = useState(initial);
+        
 
         const sumar = () => {
             contador!=={stock}.stock && setContador(contador + 1)

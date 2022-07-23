@@ -1,45 +1,69 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { cartContext } from "../../Context/CartContext";
-import { Link } from "react-router-dom";
 import './Cart.css';
+import { db } from "../../firebase/firebase"
+import { doc, addDoc, collection, serverTimestamp, updateDoc } from "firebase/firestore"
+import RenderCart from './renderCart'
+import Form from './form'
+import { Link } from "react-router-dom";
 
 const Cart = () => {
 
-    const { products } = useContext(cartContext)
-    const { reset } = useContext(cartContext);
-    const { borrarProducts } = useContext(cartContext);
-    const { cantidad } = useContext(cartContext);
-    const { total } = useContext(cartContext);
+    const { total, operationState, products, screenProvider } = useContext(cartContext);
+    const [dataUser, setDataUser] = useState("")
+    
+    
 
-    const vaciarCart = () => {
-        reset()
+
+    
+
+    const finalizarCompra = () => {
+        const ventasCollection = collection(db, "ventas");
+        addDoc(ventasCollection, {
+            dataUser,
+            items: products,
+            date:serverTimestamp(),
+            total: total
+        })
+        .then((result) => {
+            screenProvider(result.id, dataUser)
+            operationState(true)
+        })
+        products.forEach(p => {
+            updateDoc(doc(db, "productos", p.id), {stock: p.stock-p.qty});
+        })
+
     }
 
-    const borrar = (id) => {
-        borrarProducts(id)
+    const getValues = (name, surname, email) => {
+        setDataUser({
+            name: name,
+            surname: surname,
+            email: email,
+        })
     }
 
     return (
-        <div className='table'>
-        {products.length === 0
-            ? <h1>Carrito Vacio, no seas zopenco y compra algo <Link to="/">aquí</Link></h1>
+        <div>
+            {products.length === 0 
+            ? <h1>Carrito Vacio, no seas zopenco y compra algo <Link to="/">aquí</Link></h1> 
             : <div>
-                <div className='title'>
-                    <h1>Producto</h1><h1>Cantidad</h1><h1>Precio unitario</h1><h1>Precio Total</h1>
-                </div >
-                {products.map(product =><div className='products' key={product.id} ><p>{product.nombre}</p><p>{product.qty}</p><p>${product.precio}</p><p>${product.precio*product.qty}</p><button onClick={() => borrar(product.id)}>Eliminar Item</button></div>)}
-                <div className='footer'>
-                    <p>Cantidad de productos agregados: {cantidad}</p>
-                    <p>Precio total: ${total}</p>
-                </div>
-                <div className='vaciarCart'>
-                    <button onClick={vaciarCart}>Vaciar Carrito</button>
+                <div>
+                    <RenderCart />
+                    <Form prop={getValues} />
+                        {dataUser !== ""
+                        ? <button onClick={finalizarCompra}><Link to="/confirm">Confirmar Compra</Link></button>
+                        : <button disabled>Confirmar Compra</button>}
                 </div>
             </div>
+            }
 
-        }
+
+
+
+
+
         </div>
-
     )
 }
 

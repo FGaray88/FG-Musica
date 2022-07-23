@@ -9,8 +9,19 @@ const CartProvider = ({children}) => {
     const [products, setProducts] = useState([])
     const [cantidad, setCantidad] = useState(0)
     const [total, setTotal] = useState(0)
+    const [idVenta, setIdVenta] = useState("")
+    const [dataUser, setDataUser] = useState("")
+    const [completed, setCompleted ] = useState(false)
+
+    const operationState = (prop) => {
+        setCompleted(prop)
+    }
 
 
+    const screenProvider = (vt, dat) => {
+        setIdVenta(vt);
+        setDataUser(dat);
+    }
 
     const cantidadProducts = (qty) => {
         products.forEach(product => {
@@ -56,7 +67,7 @@ const CartProvider = ({children}) => {
 
 
     return (
-        <Provider value={{products, addProduct, borrarProducts, reset, cantidad, total}}>
+        <Provider value={{products, addProduct, borrarProducts, reset, cantidad, total, idVenta, dataUser, screenProvider, operationState, completed}}>
             {children}
         </Provider>
     )

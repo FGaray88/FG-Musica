@@ -9,6 +9,7 @@ import {
   Route,
 } from "react-router-dom";
 import Cart from "./Components/Cart/cart";
+import ConfirmScreen from "./Components/Cart/confirmScreen";
 import CustomProvider from './Context/CartContext';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/categoria/:categoryName" element={<ItemListContainer name="Terrícola" app="'FG-Musica'" />} />
           <Route path="/item/:itemId" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/confirm" element={<ConfirmScreen />} />
         </Routes>
       </CustomProvider>
     </BrowserRouter>

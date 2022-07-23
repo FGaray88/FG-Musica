@@ -1,6 +1,6 @@
 import './itemDetail.css'
 import ItemCount from '../ItemCount/itemCount.js'
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useContext } from "react"
 import { Link } from  "react-router-dom";
 import { cartContext } from '../../Context/CartContext'
 
@@ -26,9 +26,12 @@ const ItemDetail = (producto) => {
                     <h2>{prod.nombre}</h2>
                     <p className='descripcion'>{prod.descr}</p>
                     <h3>Precio ${prod.precio}</h3>
-                    {loaded ? <ItemCount stock={5} initial={1} onAdd={onAdd} /> : <div><Link to="/">CONTINUAR COMPRA</Link><br></br><Link to="/cart">FINALIZAR COMPRA</Link></div>}
+                    <h3>Stock actual: {prod.stock}</h3>
 
-
+                    {prod.stock!==0
+                        ? loaded ? <ItemCount stock={prod.stock} initial={1} onAdd={onAdd} /> : <div><Link to="/">CONTINUAR COMPRA</Link><br></br><Link to="/cart">FINALIZAR COMPRA</Link></div>
+                        : "No hay stock"
+                    }
                 </div>
             </div>
             </>)
