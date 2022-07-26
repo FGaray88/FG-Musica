@@ -7,8 +7,14 @@ import { Link } from "react-router-dom";
 
 
 
+
 const ConfirmScreen = () => {
-    const { idVenta, dataUser, completed, total } = useContext(cartContext)
+    const { idVenta, dataUser, completed, total, operationState, reset } = useContext(cartContext)
+
+    const reinit = () => {
+        operationState(false)
+        reset()
+    }
             
     return (
         <div>
@@ -22,7 +28,7 @@ const ConfirmScreen = () => {
                     <p>Monto Total de la operacion: ${total}</p>
                     <p>ID de la operacion: "{idVenta}"</p>
                 </h2>
-                <Link to="/">Realizar otra compra</Link>
+                <button onClick={reinit}><Link to="/">Realizar otra compra</Link></button>
             </div>
             : <SpinnerCircular />}
         </div>

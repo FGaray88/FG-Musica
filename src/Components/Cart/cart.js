@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const Cart = () => {
 
-    const { total, operationState, products, screenProvider } = useContext(cartContext);
+    const { total, operationState, products, screenProvider, completed } = useContext(cartContext);
     const [dataUser, setDataUser] = useState("")
     
     
@@ -28,6 +28,7 @@ const Cart = () => {
         .then((result) => {
             screenProvider(result.id, dataUser)
             operationState(true)
+            
         })
         products.forEach(p => {
             updateDoc(doc(db, "productos", p.id), {stock: p.stock-p.qty});
@@ -45,7 +46,7 @@ const Cart = () => {
 
     return (
         <div>
-            {products.length === 0 
+            {products.length === 0 || completed
             ? <h1>Carrito Vacio, no seas zopenco y compra algo <Link to="/">aquí</Link></h1> 
             : <div>
                 <div>

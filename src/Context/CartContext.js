@@ -13,10 +13,11 @@ const CartProvider = ({children}) => {
     const [dataUser, setDataUser] = useState("")
     const [completed, setCompleted ] = useState(false)
 
+    
+
     const operationState = (prop) => {
         setCompleted(prop)
     }
-
 
     const screenProvider = (vt, dat) => {
         setIdVenta(vt);
