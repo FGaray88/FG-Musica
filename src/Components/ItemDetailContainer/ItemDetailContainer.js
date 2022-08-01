@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-/* import './ItemDetailContainer.css' */
+import './ItemDetailContainer.css'
 import ItemDetail from "../ItemDetail/itemDetail"
 import { SpinnerCircular } from 'spinners-react';
 import { useParams } from "react-router-dom";

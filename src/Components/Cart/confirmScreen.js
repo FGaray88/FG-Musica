@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { cartContext } from "../../Context/CartContext";
 import { SpinnerCircular } from 'spinners-react';
 import { Link } from "react-router-dom";
+import './confirmScreen.css'
 
 
 
@@ -19,7 +20,7 @@ const ConfirmScreen = () => {
     return (
         <div>
             {completed
-            ? <div>   
+            ? <div className='contenedorCS'>   
                 <h1>Muchas gracias por tu compra {dataUser.name}  </h1>
                 <h2>El dinero lo tenemos, los productos no sabemos</h2>
                 <h2>Datos de la operacion:
@@ -28,9 +29,9 @@ const ConfirmScreen = () => {
                     <p>Monto Total de la operacion: ${total}</p>
                     <p>ID de la operacion: "{idVenta}"</p>
                 </h2>
-                <button onClick={reinit}><Link to="/">Realizar otra compra</Link></button>
+                <button className='botonNuevaCompra' onClick={reinit}><Link to="/">Realizar otra compra</Link></button>
             </div>
-            : <SpinnerCircular />}
+            :<div className='spinner'><SpinnerCircular /></div>}
         </div>
     )
 

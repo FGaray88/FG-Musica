@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { cartContext } from "../../Context/CartContext";
+import './renderCart.css';
 
 
 const RenderCart = ()  => {
@@ -20,19 +21,20 @@ const RenderCart = ()  => {
     }
 
     return (
-        <div className='table'>
-            <div>
-                <div className='title'>
-                    <h1>Producto</h1><h1>Cantidad</h1><h1>Precio unitario</h1><h1>Precio Total</h1>
-                </div >
-                {products.map(product =><div className='products' key={product.id} ><p>{product.nombre}</p><p>{product.qty}</p><p>${product.precio}</p><p>${product.precio*product.qty}</p><button onClick={() => borrar(product.id)}>Eliminar Item</button></div>)}
-                <div className='footer'>
-                    <p>Cantidad de productos agregados: {cantidad}</p>
-                    <p>Precio total: ${total}</p>
+        <div>
+            <div className='table'>
+                <div className='titulo'>
+                    <h2>Producto</h2><h2>Cantidad</h2><h2>Precio unitario</h2><h2>Precio Total</h2><h3> </h3>
                 </div>
+                {products.map(product =><div className='products' key={product.id} ><p>{product.nombre}</p><p>{product.qty}</p><p>${product.precio}</p><p>${product.precio*product.qty}</p><button className='itemButton' onClick={() => borrar(product.id)}>Eliminar Item</button></div>)}
                 <div className='vaciarCart'>
                     <button onClick={vaciarCart}>Vaciar Carrito</button>
                 </div>
+                <div className='footer'>
+                    <p className='text'>Total de {cantidad} productos agregados</p>
+                    <p className='price'>Precio total: ${total}</p>
+                </div>
+
             </div>
         </div>
 

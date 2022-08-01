@@ -1,0 +1,17 @@
+
+.contenedorCS {
+    background-color: rgb(250, 238, 227);
+    margin: auto;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    border: 2px ridge grey;
+}
+
+.botonNuevaCompra {
+    height: 50px;
+    width: 200px;
+    margin-bottom: 20px;
+}

@@ -40,12 +40,13 @@ const ItemListContainer = (props) => {
 
 
     return (
-        <>
-            <p className="texto1">Bienvenido {props.name} a {props.app}</p>
-            <div>
-                {loaded ? <SpinnerCircular /> : <ItemList prop={products} />}
+        <div>
+            <div className="contenedorILC">
+                <p className="texto1">Bienvenido {props.name} a {props.app}</p>
+                {loaded ? <div className="spinner"><SpinnerCircular /></div>
+                        : <div><ItemList prop={products} /></div>}
             </div>
-        </>
+        </div>
     )
 
 }

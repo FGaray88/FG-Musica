@@ -11,15 +11,15 @@ const ItemList = (prop) => {
     const data = prop.prop
     
     return (
-        <>
-        <div className="spinner">
-            {data.length===0 && <SpinnerCircular />}
-        </div>
+        <div>
+            <div className="spinner">
+                {data.length===0 && <SpinnerCircular />}
+            </div>
 
-        <div className="lista">
-        {data.map((product) =><Item key={product.id} prop={product} />)}
+            <div className="lista">
+            {data.map((product) =><Item key={product.id} prop={product} />)}
+            </div>
         </div>
-        </>
         )    
 }
 

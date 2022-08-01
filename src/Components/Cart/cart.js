@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { cartContext } from "../../Context/CartContext";
-import './Cart.css';
+import './cart.css';
 import { db } from "../../firebase/firebase"
 import { doc, addDoc, collection, serverTimestamp, updateDoc } from "firebase/firestore"
 import RenderCart from './renderCart'
@@ -47,23 +47,20 @@ const Cart = () => {
     return (
         <div>
             {products.length === 0 || completed
-            ? <h1>Carrito Vacio, no seas zopenco y compra algo <Link to="/">aquí</Link></h1> 
+            ? <h1 className='emptyCart'>Carrito Vacio, compra algo <Link to="/">aquí</Link></h1> 
             : <div>
-                <div>
+                <div className='contenedorCart'>
                     <RenderCart />
-                    <Form prop={getValues} />
+                    <div className='formulario'>
+                        <h2>Para confirmar la compra complete sus datos</h2>
+                        <Form prop={getValues} />
+                    </div>
                         {dataUser !== ""
-                        ? <button onClick={finalizarCompra}><Link to="/confirm">Confirmar Compra</Link></button>
-                        : <button disabled>Confirmar Compra</button>}
+                        ? <button className="but" onClick={finalizarCompra}><Link to="/confirm" className='link'>Confirmar Compra</Link></button>
+                        : <button className="butDis" disabled>Confirmar Compra</button>}
                 </div>
             </div>
             }
-
-
-
-
-
-
         </div>
     )
 }

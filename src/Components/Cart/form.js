@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './form.css';
 
 const Form = ( getValues ) => {
 
@@ -31,8 +32,8 @@ const Form = ( getValues ) => {
                     Dirección de correo
                         <input type="email" name="mail" onChange={event => setEmail(event.target.value)} required />
                     </label>
-                    <input type="submit" value="Submit" />
-                </div>                
+                </div>      
+                <input type="submit" value="Enviar" />          
             </form>
         </div> 
         )
