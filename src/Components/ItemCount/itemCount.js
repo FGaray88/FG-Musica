@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import './itemCount.css'
-import { Link } from  "react-router-dom";
 
 
 
@@ -18,7 +17,7 @@ import { Link } from  "react-router-dom";
         }
         
         const addCart = () => {
-            contador!==0 ? onAdd(contador) : alert("no se puede agregar")
+            contador!==0 && onAdd(contador)
             
         }
 
@@ -35,14 +34,12 @@ import { Link } from  "react-router-dom";
                         <button onClick={sumar}>►</button>
                     </div>
                     <div className="carrito" >
-                        <button onClick={addCart}>AGREGAR AL CARRITO</button>
+                        {contador!==0
+                        ? <button onClick={addCart}>AGREGAR AL CARRITO</button>
+                        : <button disabled>AGREGAR AL CARRITO</button>}
                     </div>
                 </div>
             </section> )
     }
 
     export default ItemCount
-    
-
-    /* const [usuarios, setUsuarios] = useState([]);
-    const [user, setUser] = useState({}) */
