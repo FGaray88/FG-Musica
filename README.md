@@ -16,31 +16,41 @@ Tambien estoy implementando un logo dentro de un Link que al clickear nos lleva 
 
 
 ItemListContainer : 
-este componente toma el array de productos original y lo envia a ItemList por parametro
+Este componente toma el array de productos original proveniente de Firebase y lo envia a ItemList por parametro
 
 
 ItemList :
-recibe el array de productos con demora programada (promises) y setea en "products" el array completo o filtrado segun categoria segun corresponda, luego se envia por props a Item un solo producto del nuevo array ("products") y se hace un .map para que muestre un Item por cada producto que haya en el mismo. Ademas incorpora un spinner durante el lapso de tiempo que tarda en mostrarse los productos
+Recibe el array de productos y setea en la const "products" el array completo o filtrado segun categoria segun corresponda, luego se envia por props a Item un solo producto del nuevo array ("products") y se hace un .map para que muestre un Item por cada producto que haya en el mismo. Ademas incorpora un spinner durante el lapso de tiempo que tarda en mostrarse los productos
 
 
 Item: 
-Recibe un producto (objeto) con todas sus propiedades que a traves del destructuring estoy asignado un tag img con la prop picture (que trae la url) un h3 para el nombre, otro para el precio y un Link con una url creada a partir del id del objeto que nos llevará a ver el detalle del item seleccionado.
+Recibe un producto con todas sus propiedades y a traves del destructuring estoy asignando un tag img con la prop picture (que trae la url) un h3 para el nombre, otro para el precio y un Link con una url creada a partir del id del objeto que nos llevará a ver el detalle del item seleccionado.
 
 ItemDetailContainer:
 Recibe el array de productos original (igual que ItemListContainer) con la diferencia de que este componente va a setear en "product" el objeto que se encuentre en una posicion (index) determinada, dicha posicion variará de acuerdo al valor de itemId que estoy trayendo con useParams(), y luego con "ternario Spinner" de por medio lo enviará por props a ItemDetail.
-Como extra, estoy creando una const index = itemId - 1 para luego trabajar la logica con los numeros del index, esto lo hice asi por que no encuentro la manera de aplicar el id del producto en la linea 28 de ItemDetailContainer.js
-
-setProduct(data[index]) - asi está hecho
-setProduct(data.id) - esto no funciona
 
 
 ItemDetail :
 Similar a Item pero con otras caracteristicas mostradas, ademas aquí se encuentra montado el componente ItemCount, al cual le pasa por props un numero de stock, un numero inicial y una funcion onAdd, que si bien está declarada en este componente será llamada por ItemCount.
 
-
 ItemCount:
 Este recibe por parametro un numero de stock con el cual se establece un condicional para que en el caso de que stock sea 0 no se permita agregar el producto al carrito, y otro condicional para que el contador no permita agregar mas cantidad de las que marca stock.
 tambien recibe un numero inicial para setear el contador, y la funcion onAdd que será llamada al clickear el boton, con otra funcion condicional de por medio (addCart) que no permite activar la funcion onAdd cuando el contador es 0.
+
+CartWidget:
+Muestra en el NavBar una imagen con el numero de la cantidad de productos agregados al Cart, siempre y cuando este sea mayor a 0, en base a una operacion lógica.
+
+Cart:
+Si hay productos agregados este componente desplegará una vista con la información de dichos productos a traves del RenderCart, además mostrará en pantalla el formulario que deberá llenarse para confirmar la compra y un boton que varia su estado entre diabled y enabled según el estado del formulario (si esta completo o vacio).
+
+ConfirmScreen: 
+Este componente mostrará un saludo final, la informacion de la transaccion, un ID de la venta realizada para el usuario y un boton que redirije hacia el Home para realizar otra compra.
+
+CartContext:
+Contiene funciones y datos que seran utilizados por distintos componentes no relacionados entre si en la App.
+
+
+
 
 
 
