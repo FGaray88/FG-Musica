@@ -16,7 +16,7 @@ const ConfirmScreen = () => {
         operationState(false)
         reset()
     }
-            
+
     return (
         <div>
             {completed
@@ -34,7 +34,6 @@ const ConfirmScreen = () => {
             :<div className='spinner'><SpinnerCircular /></div>}
         </div>
     )
-
 }
 
 export default ConfirmScreen

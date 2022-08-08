@@ -6,8 +6,8 @@ import { Link } from  "react-router-dom";
 
 const Item = (productos) => {
 
-const producto = productos.prop
-const url = `/item/${producto.id}`
+    const producto = productos.prop
+    const url = `/item/${producto.id}`
 
 
     return (
@@ -21,7 +21,7 @@ const url = `/item/${producto.id}`
                 <Link to={url}>Ver detalle</Link>
             </div>
         </div>
-        )
+    )
 }
 
 

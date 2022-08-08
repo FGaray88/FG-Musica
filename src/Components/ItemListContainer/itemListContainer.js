@@ -14,16 +14,13 @@ const ItemListContainer = (props) => {
     const [loaded, setLoaded] = useState(true);
     const {categoryName} = useParams()
     
-    
     useEffect(() => {
-
             const productos = categoryName ?
                 query(collection(db, "productos"), where('categoria', '==', categoryName))
                 : collection(db, "productos");
 
             getDocs(productos)
             .then(result => {
-                
                 const lista = result.docs.map(doc => {
                     return {
                         id: doc.id,
@@ -35,10 +32,6 @@ const ItemListContainer = (props) => {
             .finally(() => setLoaded(false))
     }, [categoryName]);
 
-        
-
-
-
     return (
         <div>
             <div className="contenedorILC">
@@ -48,7 +41,6 @@ const ItemListContainer = (props) => {
             </div>
         </div>
     )
-
 }
 
 export default ItemListContainer

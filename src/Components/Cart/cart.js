@@ -7,15 +7,12 @@ import RenderCart from './renderCart'
 import Form from './form'
 import { Link } from "react-router-dom";
 
+
+
 const Cart = () => {
 
     const { total, operationState, products, screenProvider, completed } = useContext(cartContext);
     const [dataUser, setDataUser] = useState("")
-    
-    
-
-
-    
 
     const finalizarCompra = () => {
         const ventasCollection = collection(db, "ventas");
@@ -33,7 +30,6 @@ const Cart = () => {
         products.forEach(p => {
             updateDoc(doc(db, "productos", p.id), {stock: p.stock-p.qty});
         })
-
     }
 
     const getValues = (name, surname, email) => {
@@ -59,8 +55,7 @@ const Cart = () => {
                         ? <button className="but" onClick={finalizarCompra}><Link to="/confirm" className='link'>Confirmar Compra</Link></button>
                         : <button className="butDis" disabled>Confirmar Compra</button>}
                 </div>
-            </div>
-            }
+            </div>}
         </div>
     )
 }

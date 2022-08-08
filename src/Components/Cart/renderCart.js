@@ -10,7 +10,6 @@ const RenderCart = ()  => {
     const { borrarProducts } = useContext(cartContext);
     const { cantidad } = useContext(cartContext);
     const { total } = useContext(cartContext);
-    
 
     const vaciarCart = () => {
         reset()
@@ -21,7 +20,6 @@ const RenderCart = ()  => {
     }
 
     return (
-        <div>
             <div className='table'>
                 <div className='titulo'>
                     <h2>Producto</h2><h2>Cantidad</h2><h2>Precio unitario</h2><h2>Precio Total</h2><h3> </h3>
@@ -34,10 +32,7 @@ const RenderCart = ()  => {
                     <p className='text'>Total de {cantidad} productos agregados</p>
                     <p className='price'>Precio total: ${total}</p>
                 </div>
-
             </div>
-        </div>
-
     )
 }
 

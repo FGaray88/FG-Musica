@@ -17,9 +17,7 @@ const ItemDetail = (producto) => {
         addProduct({...prod, qty: contador})
     }
 
-
         return (
-            <>
             <div className='divDetail'>
                 <img src={prod.picture} alt="Hola"></img>
                 <div className='divText'>
@@ -34,7 +32,7 @@ const ItemDetail = (producto) => {
                     }
                 </div>
             </div>
-            </>)
+        )
 }
 
 

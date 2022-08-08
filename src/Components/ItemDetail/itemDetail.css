@@ -24,3 +24,15 @@
     width: 50%;
     text-align: center;
 }
+
+@media screen and (max-width: 1100px) {
+    .divDetail {
+        flex-direction: column;
+    }
+    .divDetail img{
+        width: 80%;
+    }
+    .divText {
+        width: 90%;
+    }
+}

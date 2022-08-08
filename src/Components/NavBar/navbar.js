@@ -16,7 +16,7 @@ const NavBar = () => {
     ];
 
     return (
-        <header >
+        <header>
             <div className="title">
                 <Link to="/" className="logo"><img src={logo} alt="logo" className="imgLogo" /></Link>
                 <h1>TIENDA DE MUSICA</h1>

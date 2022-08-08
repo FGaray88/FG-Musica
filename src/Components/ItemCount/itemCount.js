@@ -21,9 +21,6 @@ import './itemCount.css'
             
         }
 
-
-
-
         return (
             <section>
                 <p className="comp">Selecciona la cantidad que quieres agregar y luego haz click en agregar al carrito</p>
@@ -39,7 +36,8 @@ import './itemCount.css'
                         : <button disabled>AGREGAR AL CARRITO</button>}
                     </div>
                 </div>
-            </section> )
+            </section>
+            )
     }
 
     export default ItemCount
